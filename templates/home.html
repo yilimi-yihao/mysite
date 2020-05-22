@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{# 页面标题 #}
+{% block title %}
+    首页
+{% endblock %}
+
+{# 连接文件 #}
+{% block header_extend %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home_line.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'image.css' %}">
+{% endblock %}
+
+{# 导航li.class的启用与否：首页 #}
+{% block nav_home_active %}
+active
+{% endblock %}
+
+{# 页面内容 #}
+{% block content%}
+    {# 巨幕 #}
+    <div class="jum-1">
+        <div class="jumbotron">
+          <div class="container">
+              <h1 class="fontlogo" style="margin-bottom: 20px">遇见，香药!</h1>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;中国回族在一千多年的与疾病作斗争的过程中，不但形成了独特的回族医药理论体系，而且形成了至今尚存在的独特的民间疗法，而我们需要做的就是保护好这些正在渐渐消逝的珍宝并取其精华，造福人类。</p>
+              <p class="fontlogo2"><a class="btn btn-primary btn-lg" href="{% url 'selpage' %}" role="button">移步 精选</a></p>
+          </div>
+        </div>
+    </div>
+
+    {# 最近列项 #}
+    <div class="threeline">
+        <div class="row">
+            {% for herb in herbs %}
+            <div class="col-xs-12 col-md-4 service-item">
+                <image class="media-object-line" src="static\images\{{ herb.image }}" style="width: 100%"/>
+                <h4>香药：{{ herb.title }}</h4>
+                <p>{{ herb.content }}</p>
+            </div>
+            {% empty %}
+            <div class="col-xs-12 col-md-4 service-item">
+                <image class="media-object-line" src="static\images\home_herb.jpg" style="width: 100%"/>
+                <h4>香药</h4>
+                <p>香药”就是作为药物应用的香料，也称为 “舶药”，有一定的挥发性，常见于香料食品及医 疗卫生用药中作为配制成分。</p>
+            </div>
+            {% endfor %}
+
+            {% for pres in press %}
+            <div class="col-xs-12 col-md-4 service-item">
+                <image class="media-object-line" src="static\images\{{ pres.image }}" style="width: 100%"/>
+                <h4>药方：{{ pres.title }}</h4>
+                <p>{{ pres.content }}</p>
+            </div>
+            {% empty %}
+            <div class="col-xs-12 col-md-4 service-item">
+                <image class="media-object-line" src="static\images\home_pres.jpg" style="width: 100%"/>
+                <h4>药方</h4>
+                <p>不局限于通常说的药方，如中药香囊，一般采用芳香中药材做为配料，比如丁香、沉香、艾叶、佩兰、肉桂、益智仁、小茴香、菖蒲石、苍术、薄荷、藿香、白芷。等，有清香、驱虫、避瘟、防病的功能，香囊浓郁的药香在口鼻周围就可形成高浓度的小环境。</p>
+            </div>
+            {% endfor %}
+
+            {% for achs in achss %}
+            <div class="col-xs-12 col-md-4 service-item">
+                <image class="media-object-line" src="static\images\{{ achs.image }}" style="width: 100%"/>
+                <h4>成果：{{ achs.title }}</h4>
+                <p>{{ achs.content }}</p>
+            </div>
+            {% empty %}
+            <div class="col-xs-12 col-md-4 service-item">
+                <image class="media-object-line" src="static\images\home_achs.jpg" style="width: 100%"/>
+                <h4>成果</h4>
+                <p>项目有兰州大学创新创业行动计划支持，成果会尽量公开发布以促进中药香药的发展。</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {# 联系我们 #}
+        {# 巨幕 #}
+    <div class="jum-2">
+        <div class="jumbotron">
+            <div class="container">
+
+
+                <div class="contact-row">
+                    <div class="col-md-7 contact-left">
+                        <iframe src="https://map.baidu.com/#panoid=09022400011608061815527448U&panotype=street&heading=105&pitch=1&l=15&tn=B_NORMAL_MAP&sc=0&newmap=1&shareurl=1&pid=09022400011608061815527448U&psp=%7B%22PanoModule%22%3A%7B%22markerUid%22%3A%22280a3eb1a10467a2e21103e3%22%7D%7D" scrolling="no" ></iframe>
+                    </div>
+                    <div class="col-md-5 contact-right" style=" padding-left: 40px;padding-top: 40px;">
+                        <div class="address-left">
+                            <h3 class="title">联系我们</h3>
+                            <p>欢迎您提出宝贵意见</p>
+                        </div>
+                        <div class="address-right">
+                            <p>联系电话 : 1500008888</p>
+                            <p>E-mail : <a href="http://mail.qq.com">1205359969@qq.com</a></p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

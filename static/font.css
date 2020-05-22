@@ -1,0 +1,9 @@
+@font-face {
+    font-family:'汉仪颜楷';
+    src: url(fonts/汉仪颜楷.ttf);
+}
+p.fontlogo {
+    font-family: '汉仪颜楷';
+    font-size: 180%;
+
+}

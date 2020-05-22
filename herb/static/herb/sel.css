@@ -1,0 +1,31 @@
+body {
+    background: #00FF00 url(../../../static/images/background.jpg) repeat;
+}
+
+div.panel-default {
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+img.media-object {
+    height: 150px;
+}
+
+div.panel-info,div.panel-warning {
+    width: 697.6px;
+    height: 223.4px;
+    /* position: inherit; */
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+div.panel-success {
+    width: 697.6px;
+    height: 223.4px;
+    /* position: inherit; */
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 150px;
+
+}

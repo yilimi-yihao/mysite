@@ -1,0 +1,6 @@
+ul.herb-types {
+    list-style-type: none;
+}
+li.herb-types {
+    padding: 5px;
+}

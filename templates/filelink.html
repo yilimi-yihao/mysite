@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>中转站</title>
+    {#ie 内核设置#}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {#响应式#}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {#连接文件#}
+    {#bootstrap文件#}
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-3.3.7/css/bootstrap.min.css' %}">
+    {#jquery#}
+        <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script type="text/javascript" src="{% static 'jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bootstrap-3.3.7/js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+    <div class="alert alert-success" role="alert">
+        请点击或复制下列地址进入文件
+        <a href="{{filelink}}">{{filelink}}</a>
+        <p>(在浏览器中您可以使用快捷键ctrl+s将文件保存至您的电脑中)</p>
+    </div>
+</body>
+</html>
+
+

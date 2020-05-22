@@ -1,0 +1,51 @@
+{% extends 'list.html' %}
+
+{% block left_list_title %}
+    {{ herb_type.type_name }}列表(按时间顺序排序)
+{% endblock %}
+
+{% block left_list %}
+    {% for herb in herbs %}
+    <a href="{% url 'herb_detail' herb.pk %}">
+        <h3>{{ herb.title }}</h3>
+    </a>
+    <p>{{ herb.content|truncatechars:30 }}</p>
+    {% empty %}
+    <p>-- 香药：暂无信息， 敬请期待 --</p>
+    {% endfor %}
+
+    <hr>
+    <p>一共有{{ herbs|length }}篇信息</p>
+
+{% endblock %}
+
+{% block right_list %}
+    {% for herb_type in herb_types %}
+    <li class='herb-types'>
+        <h4>香药</h4>
+        <li class='herb-types'><a href="{% url 'herbs_with_type' herb_type.pk %}">{{ herb_type.type_name }}</a></li>
+    </li>
+    {% empty %}
+        <li>香药暂无分类</li>
+    {% endfor %}
+
+    {% for pres_type in pres_types %}
+    <li class='herb-types'>
+        <h4>药方</h4>
+        <li class='herb-types'><a href="{% url 'pres_with_type' pres_type.pk %}">{{ pres_type.type_name }}</a></li>
+    </li>
+    {% empty %}
+        <li>药方暂无分类</li>
+    {% endfor %}
+
+    <li class='herb-types'>
+        <h4>成果</h4>
+        <li class='herb-types'><a href="{% url 'achs_list' %}">成果</a></li>
+    </li>
+
+    <li class='herb-types'>
+        <h4>文件</h4>
+        <li class='herb-types'><a href="{% url 'file_list' %}">文件</a></li>
+    </li>
+
+{% endblock %}

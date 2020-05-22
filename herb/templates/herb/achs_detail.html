@@ -1,0 +1,35 @@
+{% extends 'list.html' %}
+
+{% block left_list %}
+    <h3>{{ achs_detail.title }}</h3>
+    <p>创建时间：{{ achs_detail.created_time|date:"y-m-d H:n:s" }}</p>
+    <hr>
+    <img class="media-object" src="../../images/{{ achs_detail.image }}">
+    <hr>
+    <p>{{ achs_detail.content }}</p>
+{% endblock %}
+
+{% block right_list %}
+    {% for herb_type in herb_types %}
+    <li class='herb-types'>
+        <h4>香药</h4>
+        <li class='herb-types'><a href="{% url 'herbs_with_type' herb_type.pk %}">{{ herb_type.type_name }}</a></li>
+    </li>
+    {% empty %}
+        <li>香药暂无分类</li>
+    {% endfor %}
+
+    {% for pres_type in pres_types %}
+    <li class='herb-types'>
+        <h4>药方</h4>
+        <li class='herb-types'><a href="{% url 'pres_with_type' pres_type.pk %}">{{ pres_type.type_name }}</a></li>
+    </li>
+    {% empty %}
+        <li>药方暂无分类</li>
+    {% endfor %}
+
+    <li class='herb-types'>
+        <h4>成果</h4>
+        <li class='herb-types'><a href="{% url 'achs_list' %}">成果</a></li>
+    </li>
+{% endblock %}
